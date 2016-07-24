@@ -35,22 +35,15 @@ body {
 
 #submit {
   color: white;
-  flex-grow: 1;
-  font-size: inherit;
+  font-size: 14px;
   padding: 10px;
-  border-left-style: solid;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-right-style: none; border-top-style: none; border-bottom-style: none;
-  border-color: #888888;
   background-color: #339966;
+  border: none;
 }
 
 #titlebar {
   display: flex;
   justify-content: space-between;
-  align-content: stretch;
-  width: 100%;
   margin-bottom: 5px;
   border-radius: 5px;
   border: 1px solid;
@@ -63,7 +56,7 @@ body {
   min-width: 200px;
   min-height: 120px;
   background-color: white;
-  font-size: 1.5em;
+  font-size: 24px;
   color: black;
   box-shadow: 2px 2px 2px #888888;
 }
@@ -86,6 +79,10 @@ body {
   justify-content: space-between;
   padding: 6px;
   border-bottom: 2px black;
+}
+
+#infobar > a {
+  text-decoration: underline;
 }
 
 #editinput {

@@ -3,7 +3,7 @@ import Draggable from 'react-draggable';
 import marked from 'marked';
 import Textarea from 'react-textarea-autosize';
 
-let z = 0;
+let zIndex = 0;
 
 class Note extends Component {
   constructor(props) {
@@ -34,9 +34,8 @@ class Note extends Component {
 
   onSave() {
     this.setState({ isEditing: !this.state.isEditing });
-    console.log(`this is my z index: ${z}`);
-    this.props.onSave(this.props.id, { text: document.getElementById('textarea').value, z });
-    z++;
+    this.props.onSave(this.props.id, { text: document.getElementById('textarea').value, zIndex });
+    zIndex++;
   }
 
   onDrag(e, ui) {
@@ -80,7 +79,7 @@ class Note extends Component {
           grid={[1, 1]}
           defaultPosition={{ x: 20, y: 20 }}
           position={position}
-          zIndex={this.props.z}
+          zIndex={this.props.zIndex}
           onStart={this.onStartDrag}
           onDrag={this.onDrag}
           onStop={this.onStopDrag}

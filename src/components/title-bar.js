@@ -13,7 +13,7 @@ const TitleBar = (props) => {
   return (
     <div>
       <form id="titlebar" onSubmit={submit}>
-        <input type="text" id="text" placeholder="Give your note a cool name!" />
+        <input type="text" id="text" placeholder="Give your note a cool name!" autoComplete="off" />
         <input type="submit" value="Create Note" id="submit" />
       </form>
     </div>
