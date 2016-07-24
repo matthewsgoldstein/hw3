@@ -20,22 +20,22 @@ class Note extends Component {
     this.onDrag = this.onDrag.bind(this);
   }
 
-  onDelete() {
-    this.props.onDelete(this.props.id);
-  }
-
   onEdit() {
     this.setState({ isEditing: !this.state.isEditing });
   }
 
-  onChange() {
-    this.props.onSave(this.props.id, { text: document.getElementById('textarea').value });
+  onDelete() {
+    this.props.onDelete(this.props.id);
   }
 
   onSave() {
     this.setState({ isEditing: !this.state.isEditing });
-    this.props.onSave(this.props.id, { text: document.getElementById('textarea').value, zIndex });
+    this.props.onSave(this.props.id, { text: document.getElementById(`textarea${this.props.id}`).value, zIndex });
     zIndex++;
+  }
+
+  onChange() {
+    this.props.onSave(this.props.id, { text: document.getElementById(`textarea${this.props.id}`).value });
   }
 
   onDrag(e, ui) {
@@ -43,6 +43,10 @@ class Note extends Component {
   }
 
   renderSomeSection() {
+    // talked with Henry Wilson about the following line and its
+    // use in onSave() and onChange()
+    const textareaId = `textarea${this.props.id}`;
+
     const position = {
       x: this.props.x,
       y: this.props.y,
@@ -51,31 +55,7 @@ class Note extends Component {
     if (this.state.isEditing) {
       return (
         <Draggable
-          handle=".handle"
-          grid={[1, 1]}
-          defaultPosition={{ x: 20, y: 20 }}
-          position={position}
-          zIndex={this.props.z}
-          onStart={this.onStartDrag}
-          onDrag={this.onDrag}
-          onStop={this.onStopDrag}
-        >
-          <div id="note">
-            <span className="handle" id="topbar">
-              <div className="trash" onClick={this.onDelete}></div>
-            </span>
-            <span id="infobar">
-              <a>{this.props.title}</a>
-              <i className="fa fa-check" aria-hidden="true" onClick={this.onEdit}></i>
-            </span>
-            <div><Textarea id="textarea" defaultValue={this.props.text} onChange={this.onChange} placeholder="write your note here!" /></div>
-          </div>
-        </Draggable>
-      );
-    } else {
-      return (
-        <Draggable
-          handle=".handle"
+          handle=".drag"
           grid={[1, 1]}
           defaultPosition={{ x: 20, y: 20 }}
           position={position}
@@ -85,7 +65,31 @@ class Note extends Component {
           onStop={this.onStopDrag}
         >
           <div id="note">
-            <span className="handle" id="topbar">
+            <span className="drag" id="topbar">
+              <div className="trash" onClick={this.onDelete}></div>
+            </span>
+            <span id="infobar">
+              <a>{this.props.title}</a>
+              <i className="fa fa-check" aria-hidden="true" onClick={this.onEdit}></i>
+            </span>
+            <div><Textarea id={textareaId} defaultValue={this.props.text} onChange={this.onChange} placeholder="write your note here!" /></div>
+          </div>
+        </Draggable>
+      );
+    } else {
+      return (
+        <Draggable
+          handle=".drag"
+          grid={[1, 1]}
+          defaultPosition={{ x: 20, y: 20 }}
+          position={position}
+          zIndex={this.props.zIndex}
+          onStart={this.onStartDrag}
+          onDrag={this.onDrag}
+          onStop={this.onStopDrag}
+        >
+          <div id="note">
+            <span className="drag" id="topbar">
               <div className="trash" onClick={this.onDelete}></div>
             </span>
             <span id="infobar">

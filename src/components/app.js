@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import Immutable from 'immutable';
-// import Welcome from './welcome';
 import TitleBar from './title-bar';
 import Note from './note';
 
-// example class based component (smart component)
 class App extends Component {
-
 
   constructor(props) {
     super(props);
@@ -20,15 +17,14 @@ class App extends Component {
     this.updateNote = this.updateNote.bind(this);
   }
 
-
   addNote(id, title) {
     if (id === 0) {
       this.setState({
-        notes: this.state.notes.set(id, { title, x: (id + 1), y: ((id + 1) * 10) }),
+        notes: this.state.notes.set(id, { title, x: (id * 40), y: (id * 40) }),
       });
     } else {
       this.setState({
-        notes: this.state.notes.set(id, { title, x: ((id + 1) * 20), y: ((id + 1) * 20) }),
+        notes: this.state.notes.set(id, { title, x: (id * 40), y: (id * 40) }),
       });
     }
   }

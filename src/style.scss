@@ -98,7 +98,7 @@ body {
 }
 
 #content {
-  padding: 6px;
+  padding-left: 10px;
 }
 
 .trash {
@@ -114,4 +114,16 @@ body {
 .trash:hover {
   width: 13px;
   height: 13px;
+}
+
+footer {
+  margin-top: 700px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#foot {
+  color: #888888;
+  font-size: 10px;
 }
