@@ -1,6 +1,120 @@
 body {
   font-family: "Roboto", sans-serif;
   color: rgb(10%, 10%, 10%);
-  background: darken(white, 10%);
-  margin: 50px;
+  background-color: darken(white, 10%);
+  margin: 30px;
+}
+
+#name {
+  font-size: 36px;
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  margin-bottom: 30px;
+  cursor: default;
+}
+
+#subname {
+  font-size: 24px;
+  font-family: 'Indie Flower', serif;
+  transition: .2s;
+  cursor: default;
+}
+
+#subname:hover {
+  color: #339966;
+}
+
+#text {
+  flex-grow: 8;
+  align-content: stretch;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+#submit {
+  color: white;
+  flex-grow: 1;
+  font-size: inherit;
+  padding: 10px;
+  border-left-style: solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right-style: none; border-top-style: none; border-bottom-style: none;
+  border-color: #888888;
+  background-color: #339966;
+}
+
+#titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-content: stretch;
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #888888;
+  background-color: white;
+}
+
+#note {
+  position: absolute;
+  min-width: 200px;
+  min-height: 120px;
+  background-color: white;
+  font-size: 1.5em;
+  color: black;
+  box-shadow: 2px 2px 2px #888888;
+}
+
+#topbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 6px;
+  background-color: #336699;
+  height: 10px;
+  cursor: move;
+}
+
+#infobar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 6px;
+  border-bottom: 2px black;
+}
+
+#editinput {
+  display: inline-block;
+  width: 97%;
+  height: 100%;
+}
+
+#textarea {
+  width: 97%;
+  max-width: 97%;
+  height: 100%;
+}
+
+#content {
+  padding: 6px;
+}
+
+.trash {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: red;
+  color: white;
+  transition: .1s;
+  cursor: default;
+}
+
+.trash:hover {
+  width: 13px;
+  height: 13px;
 }
